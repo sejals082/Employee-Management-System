@@ -28,6 +28,10 @@ export default function EmployeeDirectory() {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
+                        <th>Department</th>
+                        <th>Designation</th>
+                        <th>Date of Joining</th>
+                        <th>Gender</th>
                     </tr>
 
                 </thead>
@@ -41,6 +45,10 @@ export default function EmployeeDirectory() {
                                 <td>{emp.name}</td>
                                 <td>{emp.email}</td>
                                 <td>{emp.phone}</td>
+                                <td>{emp.department}</td>
+                                <td>{emp.designation}</td>
+                                <td>{emp.dateOfJoining}</td>
+                                <td>{emp.gender}</td>
                             </tr>
 
                         ))

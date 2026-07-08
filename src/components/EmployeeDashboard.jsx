@@ -108,13 +108,7 @@ const handleShow = () => setShowSidebar(true);
         <FaBars /> Menu
     </Button>
 
-    <Button
-        variant={darkMode ? "light" : "dark"}
-        onClick={toggleTheme}
-    >
-        {darkMode ? "☀ Light Mode" : "🌙 Dark Mode"}
-    </Button>
-
+    
 </div>
 
                     <Row>
@@ -143,11 +137,19 @@ const handleShow = () => setShowSidebar(true);
 
                             <hr />
 
-                            <h4>Quick Actions</h4>
+                        
 
 <AttendanceChart employeeId={employee.eid} />
 
 <div className="d-flex gap-3 mt-3 flex-wrap">
+
+<Button
+        variant="secondary"
+        onClick={() => navigate("/employee-profile")}
+    >
+        My Profile
+    </Button>
+
 
     <Button
         variant="primary"
@@ -163,13 +165,16 @@ const handleShow = () => setShowSidebar(true);
         Attendance History
     </Button>
 
-    <Button
-        variant="secondary"
-        onClick={() => navigate("/employee-profile")}
-    >
-        My Profile
-    </Button>
 
+<Button
+    variant="dark"
+    className="ms-2"
+    onClick={() => navigate("/leave")}
+>
+    Leave
+</Button>
+
+    
     {todayAttendance && !todayAttendance.checkOut && (
         <Button
             variant="warning"

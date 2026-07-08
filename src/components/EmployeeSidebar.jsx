@@ -5,6 +5,7 @@ import {
     FaUser,
     FaUsers,
     FaClipboardList,
+    FaCalendarAlt,
     FaSignOutAlt
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -63,6 +64,13 @@ export default function EmployeeSidebar({ show, handleClose }) {
                     >
                         <FaClipboardList /> Attendance History
                     </ListGroup.Item>
+
+                    <ListGroup.Item
+    action
+    onClick={() => navigate("/leave")}
+>
+    <FaCalendarAlt /> Leave
+</ListGroup.Item>
 
                     <ListGroup.Item>
 

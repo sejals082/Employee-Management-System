@@ -17,6 +17,8 @@ import Attendance from "./components/Attendance";
 import AttendanceHistory from "./components/AttendanceHistory";
 import EmployeeProfile from "./components/EmployeeProfile";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
+import Leave from "./components/Leave";
+import AdminLeaveRequests from "./components/AdminLeaveRequests";
 
 
 
@@ -123,6 +125,20 @@ function AppRoutes() {
     element={<AttendanceHistory />}
 />
 
+<Route
+    path="/leave"
+    element={<Leave />}
+/>
+
+<Route
+    path="/admin-leave-requests/:eid"
+    element={
+        <ProtectedRoute>
+            <AdminLeaveRequests />
+        </ProtectedRoute>
+    }
+/>
+
         {/* Default Route */}
         <Route
           path="/"
@@ -221,4 +237,3 @@ function App() {
 
 
 export default App;
-

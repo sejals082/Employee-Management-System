@@ -145,6 +145,17 @@ function EmployeeList() {
                                 <td>{emp.password}</td>
 
                                 <td className="d-flex gap-2">
+
+                                <Button
+        variant="warning"
+        size="sm"
+        onClick={() => navigate(`/admin-leave-requests/${emp.eid}`)}
+    >
+        Leave
+    </Button>
+
+
+                                    
     <Button
         variant="primary"
         size="sm"
