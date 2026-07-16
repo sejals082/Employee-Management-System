@@ -19,6 +19,8 @@ import EmployeeProfile from "./components/EmployeeProfile";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import Leave from "./components/Leave";
 import AdminLeaveRequests from "./components/AdminLeaveRequests";
+import ForgotPassword from "./components/ForgotPassword";
+import AllLeaveRequests from "./components/AllLeaveRequests";
 
 
 
@@ -89,6 +91,10 @@ function AppRoutes() {
 
         {/* Login */}
         <Route path="/login" element={<Login />} />
+        <Route
+    path="/forgot-password"
+    element={<ForgotPassword />}
+/>
 
 <Route path="/employee-login" element={<EmployeeLogin />} />
 
@@ -138,6 +144,7 @@ function AppRoutes() {
         </ProtectedRoute>
     }
 />
+<Route path="/all-leaves" element={<AllLeaveRequests />} />
 
         {/* Default Route */}
         <Route

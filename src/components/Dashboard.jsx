@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -22,12 +23,14 @@ import Button from "react-bootstrap/Button";
 
 
 
+
 import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
     const [employees, setEmployees] = useState([]);
     const navigate = useNavigate();
     const [showDepartmentModal, setShowDepartmentModal] = useState(false);
+    const [pendingLeaves, setPendingLeaves] = useState(0);
 
     useEffect(() => {
         fetch("http://localhost:8080/employee/getAllEmployees")
@@ -38,6 +41,20 @@ function Dashboard() {
             .catch((error) => {
                 console.error("Error fetching employees:", error);
             });
+    }, []);
+
+    useEffect(() => {
+
+        axios.get("http://localhost:8080/leave/all")
+            .then((response) => {
+    
+                const pending = response.data.filter(
+                    leave => leave.status === "Pending"
+                );
+    
+                setPendingLeaves(pending.length);
+            });
+    
     }, []);
 
     const totalEmployees = employees.length;
@@ -288,6 +305,26 @@ employees.forEach((emp) => {
         </Button>
     </Modal.Footer>
 </Modal>
+
+<Row className="mt-5">
+    <Col>
+        <Card className="shadow">
+            <Card.Body>
+
+                <h4>Pending Leave Requests</h4>
+
+                <h2>{pendingLeaves}</h2>
+
+                <Button
+                    onClick={() => navigate("/all-leaves")}
+                >
+                    View Requests
+                </Button>
+
+            </Card.Body>
+        </Card>
+    </Col>
+</Row>
 
 </Container>
 

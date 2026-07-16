@@ -16,7 +16,10 @@ const initialFormValues = {
   gender: '',
   maritalStatus: '',
   bloodGroup: '', 
-  photo: ''
+  photo: '',
+  password: '',
+  securityQuestion: '',
+  securityAnswer: ''
 }
 
 export default function EditEmployee() {
@@ -51,7 +54,9 @@ export default function EditEmployee() {
           maritalStatus: employee.maritalStatus ?? '',
           bloodGroup: employee.bloodGroup ?? '',
           photo: employee.photo ?? '',
-          password: employee.password ?? ''
+          password: employee.password ?? '',
+          securityQuestion: employee.securityQuestion ?? '',
+securityAnswer: employee.securityAnswer ?? ''
         })
         if (employee.photo) {
           setPreview(`http://localhost:8080/uploads/employee/${employee.photo}`)
@@ -377,6 +382,27 @@ export default function EditEmployee() {
               />
             </Form.Group>
           </Col>
+
+          
+
+<Col md={6}>
+    <Form.Group>
+
+        <Form.Label>Security Question</Form.Label>
+
+        <Form.Select
+    name="securityQuestion"
+    value={formValues.securityQuestion}
+    onChange={handleChange}
+    required
+>
+    <option value="What is your favorite color?">
+        What is your favorite color?
+    </option>
+</Form.Select>
+
+    </Form.Group>
+</Col>
 
           
 

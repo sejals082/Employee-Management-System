@@ -123,6 +123,13 @@ navigate("/attendance");
               </Button>
 
               <Link
+    to="/forgot-password"
+    className="d-block mt-3 text-center text-danger"
+>
+    Forgot Password?
+</Link>
+
+              <Link
     to="/login"
     className="d-block mt-3 text-center"
 >

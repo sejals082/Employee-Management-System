@@ -17,7 +17,9 @@ const initialFormValues = {
   maritalStatus: '',
   bloodGroup: '',
   photo: '',
-  password: ''
+  password: '',
+  securityQuestion: '',
+securityAnswer: ''
 }
 
 export default function CreateEmployee() {
